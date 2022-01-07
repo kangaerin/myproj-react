@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import { useEffect, useState } from 'react';
 import DebugStates from 'components/DebugStates';
+import Review from 'components/Review';
 
 function PageReviewList() {
   const [loading, setLoading] = useState(false);
@@ -44,6 +45,13 @@ function PageReviewList() {
       >
         새로고침
       </button>
+
+      <div className="">
+        {reviewList.map((review) => (
+          <Review key={review.id} review={review} />
+        ))}
+      </div>
+
       <hr />
       <DebugStates loading={loading} error={error} reviewList={reviewList} />
     </div>
