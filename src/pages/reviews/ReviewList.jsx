@@ -20,15 +20,10 @@ function PageReviewList() {
     // Promise 객체
     Axios.get(url)
       .then(({ data }) => {
-        console.group('정상 응답');
-        console.log(data);
-        console.groupEnd();
         setReviewList(data);
       })
       .catch((error) => {
-        console.group('에러 응답');
         console.log(error);
-        console.groupEnd();
         setError(error);
       })
       .finally(() => {
