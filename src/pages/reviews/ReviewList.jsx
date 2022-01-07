@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import DebugStates from 'components/DebugStates';
 
 function PageReviewList() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [reviewList, setReviewList] = useState([]);
 
   //[]를 빼먹으면 컴포넌트 호출시에 매번 호출됨.
@@ -11,6 +13,9 @@ function PageReviewList() {
   }, []);
 
   const refetch = () => {
+    setLoading(true);
+    setError(null);
+
     const url = 'http://127.0.0.1:8000/shop/api/reviews/';
     // Promise 객체
     Axios.get(url)
@@ -24,12 +29,19 @@ function PageReviewList() {
         console.group('에러 응답');
         console.log(error);
         console.groupEnd();
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   return (
     <div>
       <h2>Review List</h2>
+
+      {loading && <div>Loading...</div>}
+      {error && <div>통신중에 오류가 발생했습니다.</div>}
 
       <button
         onClick={() => refetch()}
@@ -38,7 +50,7 @@ function PageReviewList() {
         새로고침
       </button>
       <hr />
-      <DebugStates reviewList={reviewList} />
+      <DebugStates loading={loading} error={error} reviewList={reviewList} />
     </div>
   );
 }
