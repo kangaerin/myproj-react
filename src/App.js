@@ -1,13 +1,14 @@
-import './App.css';
-import ReviewList from 'pages/reviews/RivewsList';
-import Profile from 'pages/accounts/Profile';
-import Login from 'pages/accounts/Login';
-import { Routes, Route } from 'react-router-dom';
 import TopNav from 'components/TopNav';
+import Login from 'pages/accounts/Login';
+import Profile from 'pages/accounts/Profile';
+import ReviewList from 'pages/reviews/ReviewList';
+import { Route, Routes } from 'react-router-dom';
+
+import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <TopNav />
       <Routes>
         <Route path="/accounts/login/" element={<Login />} />
