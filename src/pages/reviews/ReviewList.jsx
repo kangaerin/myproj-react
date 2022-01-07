@@ -30,9 +30,15 @@ function PageReviewList() {
   return (
     <div>
       <h2>Review List</h2>
+
+      <button
+        onClick={() => refetch()}
+        className="bg-yellow-400 hover:bg-red-400"
+      >
+        새로고침
+      </button>
       <hr />
       <DebugStates reviewList={reviewList} />
-      <pre>{JSON.stringify(reviewList, null, 2)}</pre>
     </div>
   );
 }
