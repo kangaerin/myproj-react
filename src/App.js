@@ -38,8 +38,8 @@ function App() {
             element={<ContextApiSample2 />}
           />
         </Routes>
-        <hr />
-        윈도우 크기 → {windowWidth}px
+        {/* <hr /> */}
+        {/* 윈도우 크기 → {windowWidth}px */}
       </div>
       <Routes>
         <Route path="examples/clock/" element={<Clock />} />
