@@ -4,7 +4,7 @@ const useWindowSize = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
 
-  const size = ['가로 :', width, 'px', ', ', '세로 : ', height];
+  const size = ['가로 : ', width, 'px', ', ', '세로 : ', height];
 
   useEffect(() => {
     const onResize = () => {
