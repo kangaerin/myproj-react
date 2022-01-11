@@ -21,7 +21,7 @@ function PageReviewList() {
     setLoading(true);
     setError(null);
 
-    const url = 'http://127.0.0.1:8000/shop/api/reviews/';
+    const url = `{${API_HOST}/shop/api/reviews/`;
     // Promise 객체
     Axios.get(url)
       .then(({ data }) => {
