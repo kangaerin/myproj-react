@@ -2,11 +2,14 @@ import Axios from 'axios';
 import { useEffect, useState } from 'react';
 import DebugStates from 'components/DebugStates';
 import Review from 'components/Review';
+import { useNavigate } from 'react-router-dom';
 
 function PageReviewList() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [reviewList, setReviewList] = useState([]);
+
+  const navigate = useNavigate();
 
   //[]를 빼먹으면 컴포넌트 호출시에 매번 호출됨.
   useEffect(() => {
@@ -74,9 +77,19 @@ function PageReviewList() {
 
       <button
         onClick={() => refetch()}
-        className="bg-yellow-400 hover:bg-red-400"
+        className="bg-yellow-400 hover:bg-red-400 mr-1"
       >
         새로고침
+      </button>
+
+      <button
+        onClick={() => {
+          navigate('/reviews/new/');
+        }}
+        className="bg-blue-400 
+      hover:bg-slate-400"
+      >
+        새 리뷰
       </button>
 
       <div className="">
