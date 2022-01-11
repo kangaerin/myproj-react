@@ -1,19 +1,22 @@
-import { createContext, useContext } from 'react';
-import { useState } from 'react/cjs/react.development';
+import { createContext, useContext, useReducer, useState } from 'react';
 
 // 인자 : context에서 다룰 값의 디폴트 값
 const MessageContext = createContext();
 
+function reducer(prevCount, action) {
+  const { type } = action;
+  if (type === 'PLUS') return prevCount + 1;
+  return prevCount;
+}
+
 function ContextApiSample() {
-  const [count, setCount] = useState(0);
+  const [count, dispatch] = useReducer(reducer, 0);
 
   return (
     <div>
       <h2>ContextApiSample</h2>
-      <button onClick={() => setCount((prev) => prev + 1)}>
-        1씩 증가 버튼
-      </button>
-      <MessageContext.Provider value={{ count, setCount }}>
+      <button onClick={() => dispatch({ type: 'PLUS' })}>1씩 증가</button>
+      <MessageContext.Provider value={{ count, dispatch }}>
         <Level1 />
       </MessageContext.Provider>
     </div>
@@ -38,8 +41,6 @@ function Level2() {
   );
 }
 
-// Context를 사용하는 가장 원형
-
 function Level3() {
   return (
     <div>
@@ -51,12 +52,12 @@ function Level3() {
 }
 
 function Level4() {
-  const { count, setCount } = useContext(MessageContext);
+  const { count, dispatch } = useContext(MessageContext);
   return (
     <div>
       <h2>Level4</h2>
       <div>{count}</div>
-      <button onClick={() => setCount((prev) => prev + 1)}>1씩 증가</button>
+      <button onClick={() => dispatch({ type: 'PLUS' })}>1씩 증가</button>
     </div>
   );
 }
