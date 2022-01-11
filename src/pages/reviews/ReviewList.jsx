@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import DebugStates from 'components/DebugStates';
 import Review from 'components/Review';
 import { useNavigate } from 'react-router-dom';
+import { API_HOST } from 'Constants';
 
 function PageReviewList() {
   const [loading, setLoading] = useState(false);
@@ -37,7 +38,7 @@ function PageReviewList() {
 
   const deleteReview = (deletingReiew) => {
     const { id: deletingReviewId } = deletingReiew;
-    const url = `http://127.0.0.1:8000/shop/api/reviews/${deletingReviewId}/`;
+    const url = `${API_HOST}}shop/api/reviews/${deletingReviewId}/`;
 
     setLoading(true);
     setError(null);
