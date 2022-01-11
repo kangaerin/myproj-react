@@ -20,16 +20,19 @@ function TopNav() {
           <MyLink to="/examples/components/">컴포넌트 예시</MyLink>
         </li>
         <li>
-          <MyLink to="examples/clock/">시계</MyLink>
+          <MyLink to="/examples/clock/">시계</MyLink>
         </li>
         <li>
-          <MyLink to="examples/Css-module/">Css</MyLink>
+          <MyLink to="/examples/Css-module/">Css</MyLink>
         </li>
         <li>
-          <MyLink to="examples/cssinjs/">CssInJs</MyLink>
+          <MyLink to="/examples/cssinjs/">CssInJs</MyLink>
         </li>
         <li>
-          <MyLink to="examples/contextapisample/">ContextApiSample</MyLink>
+          <MyLink to="/examples/context-api/">Context API</MyLink>
+        </li>
+        <li>
+          <MyLink to="/examples/context-api-2/">Context API #2</MyLink>
         </li>
       </ul>
     </div>

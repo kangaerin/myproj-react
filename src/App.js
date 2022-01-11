@@ -5,6 +5,7 @@ import PageBlog from 'pages/blog/PageBlog';
 import Clock from 'pages/examples/Clock';
 import Components from 'pages/examples/Components';
 import ContextApiSample from 'pages/examples/ContextApiSample';
+import ContextApiSample2 from 'pages/examples/ContextApiSample2';
 import CssInJs from 'pages/examples/CssInJs';
 import CssMoudle from 'pages/examples/CSSModule';
 import useWindowWidth from 'pages/examples/useWindowWidth';
@@ -29,11 +30,12 @@ function App() {
           <Route path="/reviews/new/" element={<ReviewForm />} />
           <Route path="/reviews/:reviewId/edit/" element={<ReviewForm />} />
           <Route path="/examples/components/" element={<Components />} />
-          <Route path="examples/css-module/" element={<CssMoudle />} />
-          <Route path="examples/cssinjs/" element={<CssInJs />} />
+          <Route path="/examples/css-module/" element={<CssMoudle />} />
+          <Route path="/examples/cssinjs/" element={<CssInJs />} />
+          <Route path="/examples/context-api/" element={<ContextApiSample />} />
           <Route
-            path="examples/contextapisample"
-            element={<ContextApiSample />}
+            path="/examples/context-api-2/"
+            element={<ContextApiSample2 />}
           />
         </Routes>
         <hr />
