@@ -28,6 +28,9 @@ function TopNav() {
         <li>
           <MyLink to="examples/cssinjs/">CssInJs</MyLink>
         </li>
+        <li>
+          <MyLink to="examples/contextapisample/">ContextApiSample</MyLink>
+        </li>
       </ul>
     </div>
   );
