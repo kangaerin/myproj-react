@@ -1,0 +1,20 @@
+// 대괄호 안에 중첩으로 넣을 수 있음.
+
+.css-module {
+  background-color: yellow;
+  color: red;
+
+  h2 {
+    color: purple;
+  }
+
+  .content {
+    background-color: green;
+    color: white;
+  }
+
+  .date {
+    background-color: pink;
+    color: black;
+  }
+}
