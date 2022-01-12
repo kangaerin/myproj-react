@@ -1,14 +1,12 @@
-import BlogList from './BlogList';
+import BlogList from 'components/blog/BlogList';
+import DebugStates from 'components/DebugStates';
 
 function PageBlog() {
   return (
     <div>
       <h2 className="text-red-400 border-b-2 border-red-300">Blog</h2>
       <BlogList />
-      <h3>제목 : </h3>
-      <input type={Text} />
-      <h3>내용</h3>
-      <textarea style={{ backgroundcolor: 'gray' }} />
+      <DebugStates />
     </div>
   );
 }
