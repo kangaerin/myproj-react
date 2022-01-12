@@ -18,8 +18,8 @@ function TopNav() {
         </li>
         {/* <li>
           <MyLink to="/reviews/">리뷰</MyLink>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <MyLink to="/examples/components/">컴포넌트 예시</MyLink>
         </li>
         <li>
