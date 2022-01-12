@@ -9,6 +9,8 @@ import ContextApiSample2 from 'pages/examples/ContextApiSample2';
 import CssInJs from 'pages/examples/CssInJs';
 import CssMoudle from 'pages/examples/CSSModule';
 import useWindowWidth from 'pages/examples/useWindowWidth';
+import PageNewsIndex from 'pages/news/PageNewsIndex';
+import PageNewsArticleDetial from 'pages/news/PageNewsArticleDetail';
 import ReviewForm from 'pages/reviews/ReviewForm';
 import ReviewList from 'pages/reviews/ReviewList';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -26,6 +28,8 @@ function App() {
           <Route path="/accounts/login/" element={<Login />} />
           <Route path="/accounts/profile/" element={<Profile />} />
           <Route path="/blog/" element={<PageBlog />} />
+          <Route path="/news/" element={<PageNewsIndex />} />
+          <Route path="/news/:articleId/" element={<PageNewsArticleDetial />} />
           <Route path="/reviews/" element={<ReviewList />} />
           <Route path="/reviews/new/" element={<ReviewForm />} />
           <Route path="/reviews/:reviewId/edit/" element={<ReviewForm />} />
