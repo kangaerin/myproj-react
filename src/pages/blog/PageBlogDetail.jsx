@@ -5,9 +5,11 @@ function PageBlogDetail() {
   const { postId } = useParams();
 
   return (
-    <div>
+    <div className="border border-lime-400">
       <h2>블로그 내용#{postId} 보여주기</h2>
-      <BlogPostDetail postId={postId} />
+      <div>
+        <BlogPostDetail postId={postId} />
+      </div>
     </div>
   );
 }
