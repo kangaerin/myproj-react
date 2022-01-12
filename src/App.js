@@ -18,6 +18,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import PageReviewForm from 'pages/reviews/ReviewForm';
 import PageNewsArticleForm from 'pages/news/PageNewsAricleForm';
+import PageBlogDetail from 'pages/blog/PageBlogDetail';
+import BlogForm from 'components/blog/BlogForm';
 
 function App() {
   // const windowWidth = useWindowWidth();
@@ -30,6 +32,8 @@ function App() {
           <Route path="/accounts/login/" element={<Login />} />
           <Route path="/accounts/profile/" element={<Profile />} />
           <Route path="/blog/" element={<PageBlog />} />
+          <Route path="/blog/:postId/" element={<PageBlogDetail />} />
+          <Route path="/blog/new/" element={<BlogForm />} />
           <Route path="/news/" element={<PageNewsIndex />} />
           <Route path="/news/:articleId/" element={<PageNewsArticleDetial />} />
           <Route path="/news/new/" element={<PageNewsArticleForm />} />
