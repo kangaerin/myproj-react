@@ -34,7 +34,7 @@ function App() {
           <Route path="/news/:articleId/" element={<PageNewsArticleDetial />} />
           <Route path="/news/new/" element={<PageNewsArticleForm />} />
           <Route
-            path="/news/articleId/edit/"
+            path="/news/:articleId/edit/"
             element={<PageNewsArticleForm />}
           />
           {/* <Route path="/reviews/" element={<ReviewList />} />
