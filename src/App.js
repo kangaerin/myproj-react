@@ -16,9 +16,11 @@ import ReviewList from 'pages/reviews/ReviewList';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import './App.css';
+import PageReviewForm from 'pages/reviews/ReviewForm';
+import PageNewsArticleForm from 'pages/news/PageNewsAricleForm';
 
 function App() {
-  const windowWidth = useWindowWidth();
+  // const windowWidth = useWindowWidth();
   return (
     <>
       <div className="app">
@@ -30,7 +32,12 @@ function App() {
           <Route path="/blog/" element={<PageBlog />} />
           <Route path="/news/" element={<PageNewsIndex />} />
           <Route path="/news/:articleId/" element={<PageNewsArticleDetial />} />
-          <Route path="/reviews/" element={<ReviewList />} />
+          <Route path="/news/new/" element={<PageNewsArticleForm />} />
+          <Route
+            path="/news/articleId/edit/"
+            element={<PageNewsArticleForm />}
+          />
+          {/* <Route path="/reviews/" element={<ReviewList />} />
           <Route path="/reviews/new/" element={<ReviewForm />} />
           <Route path="/reviews/:reviewId/edit/" element={<ReviewForm />} />
           <Route path="/examples/components/" element={<Components />} />
@@ -40,7 +47,7 @@ function App() {
           <Route
             path="/examples/context-api-2/"
             element={<ContextApiSample2 />}
-          />
+          /> */}
         </Routes>
         {/* <hr /> */}
         {/* 윈도우 크기 → {windowWidth}px */}
