@@ -11,6 +11,12 @@ const INIT_FIELD_VALUES = { title: '', content: '' };
 // articleId  : 수정
 
 function ArticleForm({ articleId, handleDidSave }) {
+  // articleId의 값이 있을 때만 조회
+  // articleId => manual=false
+  // !articleId => manual=true
+  const [{ data: article, loading: getLoading, error: getEerror }] =
+    useApiAxios(`/news/api/articles/${articleId}/`, { manual: !articleId });
+
   const [
     {
       loading: saveLoading,
@@ -20,13 +26,17 @@ function ArticleForm({ articleId, handleDidSave }) {
     saveRequest,
   ] = useApiAxios(
     {
-      url: '/news/api/articles/',
-      method: 'POST',
+      url: !articleId
+        ? '/news/api/articles/'
+        : `/news/api/articles/${articleId}/`,
+      method: !articleId ? 'POST' : 'PUT',
     },
     { manual: true },
   );
 
-  const { fieldValues, handleFieldChange } = useFieldValues(INIT_FIELD_VALUES);
+  const { fieldValues, handleFieldChange } = useFieldValues(
+    article || INIT_FIELD_VALUES,
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,6 +92,9 @@ function ArticleForm({ articleId, handleDidSave }) {
         </div>
       </form>
       <DebugStates
+        article={article}
+        getLoading={getLoading}
+        getEerror={getEerror}
         saveErrorMessages={saveErrorMessages}
         fieldValues={fieldValues}
       />
