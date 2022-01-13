@@ -10,6 +10,10 @@ function ArticleDetail({ articleId }) {
     { manual: true },
   );
 
+  useEffect(() => {
+    refetch();
+  }, []);
+
   const [{ loading: deleteLoading, error: deleteError }, deleteArticle] =
     useApiAxios(
       {
@@ -26,10 +30,6 @@ function ArticleDetail({ articleId }) {
       deleteArticle().then(() => navigate('/news/'));
     }
   };
-
-  useEffect(() => {
-    refetch();
-  }, []);
 
   return (
     <div>

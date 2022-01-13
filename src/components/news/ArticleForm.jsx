@@ -44,10 +44,16 @@ function ArticleForm({ articleId, handleDidSave }) {
     // 서버로 photo=null이 전달이 되면, 아래 오류가 발생
     //   - The submitted data was not a file. Check the encoding type on the form.
     //   - 대응 : fieldValues에서 photo만 제거해주거나, photo=null이라면 빈 문자열로 변경
-    setFieldValues((prevFieldValues) => ({
-      ...prevFieldValues,
-      photo: '',
-    }));
+    // setFieldValues((prevFieldValues) => ({
+    //   ...prevFieldValues,
+    //   photo: '',
+    // }));
+
+    setFieldValues(
+      produce((draft) => {
+        draft.photo = '';
+      }),
+    );
   }, [article]);
 
   // immer 1단계
@@ -72,12 +78,7 @@ function ArticleForm({ articleId, handleDidSave }) {
   // );
 
   // immer 4단계
-
-  setFieldValues(
-    produce((draft) => {
-      draft.photo = '';
-    }),
-  );
+  // ...
 
   const handleSubmit = (e) => {
     e.preventDefault();
