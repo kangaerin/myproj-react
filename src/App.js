@@ -41,9 +41,9 @@ function App() {
             path="/news/:articleId/edit/"
             element={<PageNewsArticleForm />}
           />
-          <Route path="/reviews/" element={<ReviewList />} />
+          {/* <Route path="/reviews/" element={<ReviewList />} />
           <Route path="/reviews/new/" element={<ReviewForm />} />
-          <Route path="/reviews/:reviewId/edit/" element={<ReviewForm />} />
+          <Route path="/reviews/:reviewId/edit/" element={<ReviewForm />} /> */}
           {/* <Route path="/examples/components/" element={<Components />} />
           <Route path="/examples/css-module/" element={<CssMoudle />} />
           <Route path="/examples/cssinjs/" element={<CssInJs />} />
