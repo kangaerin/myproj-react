@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function PageBlog() {
   const navigate = useNavigate();
+
   return (
     <div>
       <h2 className="text-blue-200 border-b-2 border-blue-300">Blog</h2>
