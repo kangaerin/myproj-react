@@ -4,6 +4,7 @@ import H2 from 'components/H2';
 import LoadingIndicator from 'components/LoadingIndicator';
 import useFieldValues from 'hooks/useFieldValues';
 import { useApiAxios } from 'api/base';
+import { useEffect } from 'react';
 
 const INIT_FIELD_VALUES = { title: '', content: '' };
 
@@ -34,16 +35,26 @@ function ArticleForm({ articleId, handleDidSave }) {
     { manual: true },
   );
 
-  const { fieldValues, handleFieldChange } = useFieldValues(
+  const { fieldValues, handleFieldChange, setFieldValues } = useFieldValues(
     article || INIT_FIELD_VALUES,
   );
+
+  useEffect(() => {
+    // 서버로 photo=null이 전달이 되면, 아래 오류가 발생
+    //   - The submitted data was not a file. Check the encoding type on the form.
+    //   - 대응 : fieldValues에서 photo만 제거해주거나, photo=null이라면 빈 문자열로 변경
+    setFieldValues((prevFieldValues) => ({
+      ...prevFieldValues,
+      photo: '',
+    }));
+  }, [article]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
     // filedValues : 객체 (except 파일)
     // 파일을 업로드 하려면, FormData 인스턴스를 써야합니다.
+    const formData = new FormData();
     Object.entries(fieldValues).forEach(([name, value]) => {
       if (Array.isArray(value)) {
         const fileList = value;
