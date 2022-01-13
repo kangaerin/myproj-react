@@ -9,7 +9,9 @@ function PageBlog() {
   return (
     <div>
       <h2 className="text-blue-200 border-b-2 border-blue-300">Blog</h2>
-      <BlogList />
+      <BlogList
+        handleDidSave={(savedPost) => navigate(`/blog/${savedPost.id}/`)}
+      />
 
       <Button onClick={() => navigate('/blog/new/')}>새 포스팅 </Button>
       <DebugStates />
