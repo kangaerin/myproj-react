@@ -1,10 +1,11 @@
+import { useEffect } from 'react';
+import { produce } from 'immer';
 import Button from 'components/Button';
 import DebugStates from 'components/DebugStates';
 import H2 from 'components/H2';
 import LoadingIndicator from 'components/LoadingIndicator';
 import useFieldValues from 'hooks/useFieldValues';
 import { useApiAxios } from 'api/base';
-import { useEffect } from 'react';
 
 const INIT_FIELD_VALUES = { title: '', content: '' };
 
@@ -48,6 +49,35 @@ function ArticleForm({ articleId, handleDidSave }) {
       photo: '',
     }));
   }, [article]);
+
+  // immer 1단계
+  // setFieldValues((prevFieldValues) => {
+  //   const newFieldValues = produce(prevFieldValues, (draft) => {
+  //     draft.photo = '';
+  //   });
+  //   return newFieldValues;
+  // });
+
+  // immer 2단계
+  // setFieldValues((prevFieldValues) => {
+  //   return produce(prevFieldValues, (draft) => {
+  //     draft.photo = '';
+  //   });
+
+  // immer 3단계
+  // setFieldValues((prevFieldValues) =>
+  //   produce(prevFieldValues, (draft) => {
+  //     draft.photo = '';
+  //   }),
+  // );
+
+  // immer 4단계
+
+  setFieldValues(
+    produce((draft) => {
+      draft.photo = '';
+    }),
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
