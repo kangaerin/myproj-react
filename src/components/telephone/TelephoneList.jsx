@@ -8,9 +8,11 @@ function TelephoneList() {
   );
   return (
     <div>
-      <h2 className="w-60 bg-red-200 hover:bg-red-400 border border-lime-200">
-        전화번호부 목록입니다.
-      </h2>
+      <div>
+        <h2 className="place-content-center mb-5 text-center cursor-default border border-gray-200 border-4 rounded-lg">
+          전화번호부 목록
+        </h2>
+      </div>
       {/* {JSON.stringify(number_list)} */}
       {number_list && (
         <div>

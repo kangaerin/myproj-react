@@ -14,7 +14,7 @@ function TelephoneDetail({ numberId }) {
 
   return (
     <div>
-      <h3>
+      <h3 className="border-2 rounded-lg">
         {/* {JSON.stringify(number)} */}
         {loading && <LoadingIndicator />}
         {number && (
