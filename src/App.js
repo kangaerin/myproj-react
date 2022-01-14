@@ -20,6 +20,8 @@ import PageReviewForm from 'pages/reviews/ReviewForm';
 import PageNewsArticleForm from 'pages/news/PageNewsAricleForm';
 import PageBlogDetail from 'pages/blog/PageBlogDetail';
 import BlogForm from 'components/blog/BlogForm';
+import PageTelephoneBook from 'pages/telephone_book/PageTelephoneBook';
+import PageTelephoneBook_detail from 'pages/telephone_book/PageTelephoneBook_detail';
 
 function App() {
   // const windowWidth = useWindowWidth();
@@ -40,6 +42,11 @@ function App() {
           <Route
             path="/news/:articleId/edit/"
             element={<PageNewsArticleForm />}
+          />
+          <Route path="/telephone_book/" element={<PageTelephoneBook />} />
+          <Route
+            path="/telephone_book/:numberId/"
+            element={<PageTelephoneBook_detail />}
           />
           {/* <Route path="/reviews/" element={<ReviewList />} />
           <Route path="/reviews/new/" element={<ReviewForm />} />
