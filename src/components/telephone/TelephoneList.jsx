@@ -1,11 +1,17 @@
 import { useApiAxios } from 'api/base';
 import DebugStates from 'components/DebugStates';
 import TelephoneName from './TelephoneName';
+import { useEffect } from 'react';
 
 function TelephoneList() {
-  const [{ data: number_list, loading, error }] = useApiAxios(
+  const [{ data: number_list, loading, error }, refetch] = useApiAxios(
     '/telephone_book/api/number/',
   );
+
+  useEffect(() => {
+    refetch();
+  }, []);
+
   return (
     <div>
       <div>
