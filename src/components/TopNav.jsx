@@ -4,12 +4,12 @@ function TopNav() {
   return (
     <div className="my-3">
       <ul className="flex gap-4">
-        {/* <li>
+        <li>
           <MyLink to="/accounts/login/">로그인</MyLink>
         </li>
         <li>
           <MyLink to="/accounts/profile/">프로필</MyLink>
-        </li> */}
+        </li>
         <li>
           <MyLink to="/blog/">블로그</MyLink>
         </li>

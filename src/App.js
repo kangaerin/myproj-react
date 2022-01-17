@@ -1,6 +1,6 @@
 import TopNav from 'components/TopNav';
-import Login from 'pages/accounts/Login';
-import Profile from 'pages/accounts/Profile';
+import PageLogin from 'pages/accounts/PageLogin';
+import PageProfile from 'pages/accounts/PageProfile';
 import PageBlog from 'pages/blog/PageBlog';
 import Clock from 'pages/examples/Clock';
 import Components from 'pages/examples/Components';
@@ -32,8 +32,8 @@ function App() {
         <TopNav />
         <Routes>
           <Route path="/" element={<Navigate to="/blog/" />} />
-          <Route path="/accounts/login/" element={<Login />} />
-          <Route path="/accounts/profile/" element={<Profile />} />
+          <Route path="/accounts/login/" element={<PageLogin />} />
+          <Route path="/accounts/profile/" element={<PageProfile />} />
           <Route path="/blog/" element={<PageBlog />} />
           <Route path="/blog/:postId/" element={<PageBlogDetail />} />
           <Route path="/blog/new/" element={<BlogForm />} />
