@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 function TopNav() {
   const [auth, , , logout] = useAuth();
 
+  console.log(auth);
+
   const handledLogout = () => {
     logout();
   };
@@ -22,7 +24,7 @@ function TopNav() {
             <MyLink to="/accounts/profile/">프로필</MyLink>
             <button
               className="pb-1 text-gray-500 hover:text-red-500 hover:border-red-500 border-b-4"
-              onClick={() => handledLogout}
+              onClick={() => handledLogout()}
             >
               로그아웃
             </button>

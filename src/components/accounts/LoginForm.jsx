@@ -4,15 +4,12 @@ import DebugStates from 'components/DebugStates';
 import { useNavigate } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
 
-const INITIAL_AUTH = { isLoggedIn: false };
 const INIT_FIELD_VALUES = { username: '', password: '' };
 
 function LoginForm() {
   const navigate = useNavigate();
 
-  const [auth, , login] = useAuth();
-
-  console.log(auth);
+  const [auth, _, login] = useAuth();
 
   const [{ loading, error }, getToken] = useApiAxios(
     {
