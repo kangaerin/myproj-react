@@ -6,6 +6,7 @@ import H2 from 'components/H2';
 import LoadingIndicator from 'components/LoadingIndicator';
 import useFieldValues from 'hooks/useFieldValues';
 import { useApiAxios } from 'api/base';
+import useAuth from 'hooks/useAuth';
 
 const INIT_FIELD_VALUES = { title: '', content: '' };
 
@@ -13,11 +14,21 @@ const INIT_FIELD_VALUES = { title: '', content: '' };
 // articleId  : 수정
 
 function ArticleForm({ articleId, handleDidSave }) {
+  const [auth] = useAuth();
   // articleId의 값이 있을 때만 조회
   // articleId => manual=false
   // !articleId => manual=true
   const [{ data: article, loading: getLoading, error: getEerror }] =
-    useApiAxios(`/news/api/articles/${articleId}/`, { manual: !articleId });
+    useApiAxios(
+      {
+        url: `/news/api/articles/${articleId}/`,
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${auth.access}`,
+        },
+      },
+      { manual: !articleId },
+    );
 
   const [
     {
@@ -32,6 +43,9 @@ function ArticleForm({ articleId, handleDidSave }) {
         ? '/news/api/articles/'
         : `/news/api/articles/${articleId}/`,
       method: !articleId ? 'POST' : 'PUT',
+      headers: {
+        Authorization: `Bearer ${auth.access}`,
+      },
     },
     { manual: true },
   );
@@ -109,7 +123,7 @@ function ArticleForm({ articleId, handleDidSave }) {
 
       {saveLoading && <LoadingIndicator>저장 중 ...</LoadingIndicator>}
       {saveError &&
-        `저장 중 에러가 발생했습니다. (${saveError.response.status} ${saveError.response.statusText})`}
+        `저장 중 에러가 발생했습니다. (${saveError.response?.status} ${saveError.response?.statusText})`}
 
       <form onSubmit={handleSubmit}>
         <div className="my-3">

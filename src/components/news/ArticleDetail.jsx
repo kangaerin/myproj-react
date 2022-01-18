@@ -2,8 +2,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useApiAxios } from 'api/base';
 import { useEffect } from 'react/cjs/react.development';
 import LoadingIndicator from 'components/LoadingIndicator';
+import useAuth from 'hooks/useAuth';
 
 function ArticleDetail({ articleId }) {
+  const [auth] = useAuth();
   const navigate = useNavigate();
   const [{ data: article, loading, error }, refetch] = useApiAxios(
     `/news/api/articles/${articleId}/`,
@@ -20,6 +22,10 @@ function ArticleDetail({ articleId }) {
         url: `/news/api/articles/${articleId}/`,
 
         method: 'DELETE',
+
+        headers: {
+          Authorization: `Bearer ${auth.access}`,
+        },
       },
       { manual: true },
     );
@@ -38,7 +44,7 @@ function ArticleDetail({ articleId }) {
       {error &&
         `로딩중 에러가 발생했습니다.(${error.response.status} ${error.response.statusText})`}
       {deleteError &&
-        `삭제 요청 중 에러가 발생했습니다.(${deleteError.response.status} ${deleteError.response.statusText})`}
+        `삭제 요청 중 에러가 발생했습니다.(${deleteError.response?.status} ${deleteError.response?.statusText})`}
       {article && (
         <>
           <h3 className="text-2xl my-5">{article.title}</h3>
