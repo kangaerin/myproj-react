@@ -18,7 +18,6 @@ function useLocalStorage(key, initialValue) {
     window.localStorage.setItem(key, jsonString);
   }, [key, data]);
 
-  // TODO : 고민해볼 문제 : data에 대한 userEffect로서 구현해 볼 수 있지 않을까?
   // value : 함수 방식은 지원하지 않습니다. >value instanceof Function 하면 함수
   //   const SetDataToLocalStorage = (value) => {
   //     // FIXME: value가 함수일 때, 외부 data 참조하는 부분

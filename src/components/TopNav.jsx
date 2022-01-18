@@ -1,45 +1,45 @@
+import useAuth from 'hooks/useAuth';
 import { Link } from 'react-router-dom';
 
 function TopNav() {
+  const [auth, , , logout] = useAuth();
+
+  const handledLogout = () => {
+    logout();
+  };
+
   return (
     <div className="my-3">
       <ul className="flex gap-4">
-        <li>
-          <MyLink to="/accounts/login/">로그인</MyLink>
-        </li>
-        <li>
-          <MyLink to="/accounts/profile/">프로필</MyLink>
-        </li>
-        <li>
-          <MyLink to="/blog/">블로그</MyLink>
-        </li>
-        <li>
-          <MyLink to="/news/">뉴스룸</MyLink>
-        </li>
-        <li>
-          <MyLink to="/telephone_book/">주소록</MyLink>
-        </li>
-        {/* <li>
-          <MyLink to="/reviews/">리뷰</MyLink>
-        </li> */}
-        {/* <li>
-          <MyLink to="/examples/components/">컴포넌트 예시</MyLink>
-        </li>
-        <li>
-          <MyLink to="/examples/clock/">시계</MyLink>
-        </li>
-        <li>
-          <MyLink to="/examples/Css-module/">Css</MyLink>
-        </li>
-        <li>
-          <MyLink to="/examples/cssinjs/">CssInJs</MyLink>
-        </li>
-        <li>
-          <MyLink to="/examples/context-api/">Context API</MyLink>
-        </li>
-        <li>
-          <MyLink to="/examples/context-api-2/">Context API #2</MyLink>
-        </li> */}
+        {!auth.isLoggedIn && (
+          <>
+            <MyLink to="/accounts/login/">로그인</MyLink>
+            <MyLink to="#">회원가입</MyLink>
+          </>
+        )}
+        {auth.isLoggedIn && (
+          <>
+            <MyLink to="/accounts/profile/">프로필</MyLink>
+            <button
+              className="pb-1 text-gray-500 hover:text-red-500 hover:border-red-500 border-b-4"
+              onClick={() => handledLogout}
+            >
+              로그아웃
+            </button>
+          </>
+        )}
+
+        <MyLink to="/blog/">블로그</MyLink>
+        <MyLink to="/news/">뉴스룸</MyLink>
+        <MyLink to="/telephone_book/">주소록</MyLink>
+
+        {/* <MyLink to="/reviews/">리뷰</MyLink>
+        <MyLink to="/examples/components/">컴포넌트 예시</MyLink>
+        <MyLink to="/examples/clock/">시계</MyLink>
+        <MyLink to="/examples/Css-module/">Css</MyLink>
+        <MyLink to="/examples/cssinjs/">CssInJs</MyLink>
+        <MyLink to="/examples/context-api/">Context API</MyLink>
+        <MyLink to="/examples/context-api-2/">Context API #2</MyLink> */}
       </ul>
     </div>
   );
