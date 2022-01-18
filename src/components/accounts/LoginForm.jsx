@@ -1,8 +1,8 @@
 import useFieldValues from 'hooks/useFieldValues';
 import { useApiAxios } from 'api/base';
 import DebugStates from 'components/DebugStates';
-import useLocalStorage from 'hooks/useLocalStorage';
 import { useNavigate } from 'react-router-dom';
+import useAuth from 'hooks/useAuth';
 
 const INITIAL_AUTH = { isLoggedIn: false };
 const INIT_FIELD_VALUES = { username: '', password: '' };
@@ -10,7 +10,9 @@ const INIT_FIELD_VALUES = { username: '', password: '' };
 function LoginForm() {
   const navigate = useNavigate();
 
-  const [auth, setAuth] = useLocalStorage('auth', INITIAL_AUTH);
+  const [auth] = useAuth();
+
+  console.log(auth);
 
   const [{ loading, error }, getToken] = useApiAxios(
     {
@@ -29,7 +31,7 @@ function LoginForm() {
         response.data;
       // TODO: access/refresh token을 브라우저 어딘가에 저장해야 합니다.
       // 저장해서 페이지 새로고침이 발생하더라도 그 token이 유실되지 않아야 합니다.
-      setAuth({
+      auth({
         isLoggedIn: true,
         access,
         refresh,

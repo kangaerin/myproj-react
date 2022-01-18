@@ -1,17 +1,33 @@
 import { useApiAxios } from 'api/base';
 import DebugStates from 'components/DebugStates';
+import useAuth from 'hooks/useAuth';
 import { useEffect } from 'react/cjs/react.development';
 import ArticleSummary from './ArticleSummary';
 
 function ArticleList() {
+  const [auth] = useAuth();
+
   const [{ data: articleList, loading, error }, refetch] = useApiAxios(
-    '/news/api/articles/',
+    {
+      url: '/news/api/articles/',
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${auth.access}`,
+      },
+    },
     { manual: true },
   );
 
   useEffect(() => {
+    // if (auth.isLoggedIn) {}
+    // 방법 1)
+    // refetch({
+    //   headers: {
+    //     Authorization: `Bearer ${auth.access}`,
+    //   },
+    // });
     refetch();
-  }, []);
+  }, [auth]);
 
   return (
     <div className="my-5">
