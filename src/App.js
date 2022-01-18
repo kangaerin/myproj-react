@@ -23,6 +23,7 @@ import BlogForm from 'components/blog/BlogForm';
 import PageTelephoneBook from 'pages/telephone_book/PageTelephoneBook';
 import PageTelephoneBook_detail from 'pages/telephone_book/PageTelephoneBook_detail';
 import PageTelephoneBook_Form from 'pages/telephone_book/PageTelephoneBook_Form';
+import PageSignup from 'pages/accounts/PageSignup';
 
 function App() {
   // const windowWidth = useWindowWidth();
@@ -34,6 +35,7 @@ function App() {
           <Route path="/" element={<Navigate to="/blog/" />} />
           <Route path="/accounts/login/" element={<PageLogin />} />
           <Route path="/accounts/profile/" element={<PageProfile />} />
+          <Route path="accounts/signup/" element={<PageSignup />} />
           <Route path="/blog/" element={<PageBlog />} />
           <Route path="/blog/:postId/" element={<PageBlogDetail />} />
           <Route path="/blog/new/" element={<BlogForm />} />
