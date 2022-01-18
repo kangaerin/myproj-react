@@ -11,6 +11,7 @@ function ArticleSummary({ article }) {
           <Link to={`/news/${article.id}/`} className="font-semibold text-dark">
             {article.title}
           </Link>
+          <p>by {article.author.username}</p>
         </h3>
       </div>
     </div>

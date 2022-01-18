@@ -57,6 +57,7 @@ function ArticleDetail({ articleId }) {
                 {line}
               </p>
             ))}
+            <p>by {article.author.username}</p>
           </div>
         </>
       )}
