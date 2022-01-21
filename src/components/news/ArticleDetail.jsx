@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useApiAxios } from 'api/base';
-import { useEffect } from 'react/cjs/react.development';
+import { useEffect } from 'react';
 import LoadingIndicator from 'components/LoadingIndicator';
 import useAuth from 'hooks/useAuth';
 

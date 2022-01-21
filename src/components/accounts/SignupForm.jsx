@@ -5,7 +5,7 @@ import useAuth from 'hooks/useAuth';
 import useFieldValues from 'hooks/useFieldValues';
 import { useNavigate } from 'react-router-dom';
 
-const INIT_FILED_VALUES = { username: '', password: '', password2: '' };
+const INIT_FILED_VALUES = { username: '', password: '', password1: '' };
 
 function SignupForm() {
   const { fieldValues, handleFieldChange } = useFieldValues(INIT_FILED_VALUES);
@@ -24,11 +24,11 @@ function SignupForm() {
     e.preventDefault();
 
     signup({ data: fieldValues }).then((response) => {
-      const { username, password, password2 } = response.data;
+      const { username, password, password1 } = response.data;
       login({
         username,
         password,
-        password2,
+        password1,
       });
       console.log('가입이 완료되었습니다.');
       navigate('/accounts/login/');
@@ -72,7 +72,7 @@ function SignupForm() {
         <div>
           <input
             className="mt-5 mb-5 bg-blue-200 w-80 h-10 text-center"
-            name="password2"
+            name="password1"
             value={fieldValues.password1}
             onChange={handleFieldChange}
             type="password"

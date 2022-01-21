@@ -1,7 +1,7 @@
 import { useApiAxios } from 'api/base';
 import DebugStates from 'components/DebugStates';
 import useAuth from 'hooks/useAuth';
-import { useEffect } from 'react/cjs/react.development';
+import { useEffect } from 'react';
 import ArticleSummary from './ArticleSummary';
 
 function ArticleList() {

@@ -1,6 +1,6 @@
 import { useApiAxios } from 'api/base';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react/cjs/react.development';
+import { useEffect } from 'react';
 import LoadingIndicator from 'components/LoadingIndicator';
 
 function TelephoneDetail({ numberId }) {
